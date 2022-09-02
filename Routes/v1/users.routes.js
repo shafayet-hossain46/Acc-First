@@ -14,5 +14,9 @@ router.route('/random')
 router.route('/save')
 .post(usersControllers.saveUsers)
 
+// User Update
+router.route('/update/:id') 
+.patch(usersControllers.UpdateUser)
+
 
 module.exports = router;

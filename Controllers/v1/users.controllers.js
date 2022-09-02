@@ -50,11 +50,36 @@ module.exports.saveUsers = (req, res) => {
             }
         });
     }
+}
 
 
-    
 
-    
+
+// Update User Info
+module.exports.UpdateUser = (req, res) => {
+    if(req.params.id != Number){
+        res.send("Your ID Did Not Matched!!" .red)  
+    }else{
+        const id = req.params.id;
+        const getUser = userArr.find(user => user.id == id)
+        getUser.id = req.body.id || getUser.id;
+        getUser.name = req.body.name || getUser.name;
+        getUser.contact = req.body.contact || getUser.contact;
+        getUser.gender = req.body.gender || getUser.gender;
+        getUser.address = req.body.address || getUser.address;
+        getUser.PhotoUrl = req.body.photoUrl || getUser.photoUrl;
+
+        fs.writeFile('data.JSON', JSON.stringify(userArr), (err)=> { // to send dynamic data you must stringify it.
+            if(err){
+                res.send("error")
+                res.end()
+            }else{
+                res.send("added")
+                res.end()
+            }
+        });
+    }
+
 }
 
 
