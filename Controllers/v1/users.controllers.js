@@ -1,5 +1,6 @@
 const fs = require('fs');
 let userArr = JSON.parse(fs.readFileSync('data.JSON', 'utf8'));
+const path = require('path')
 
 
 
@@ -26,6 +27,22 @@ module.exports.getAllUsers = (req, res) => {
         res.send(userArr)
         res.end()
     }
+}
+
+
+
+// Save User
+module.exports.saveUsers = (req, res) => {
+    const newUser = req.body;
+    newUser.id = userArr.length+1;
+    userArr.push(newUser);
+    fs.writeFile('data.JSON', JSON.stringify(userArr), (err)=> { // to send dynamic data you must stringify it.
+        if(err){
+            res.send("error")
+        }else{
+            res.send("added")
+        }
+    });
 }
 
 
