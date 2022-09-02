@@ -1,3 +1,4 @@
+const colors = require('colors');
 const fs = require('fs');
 let userArr = JSON.parse(fs.readFileSync('data.JSON', 'utf8'));
 const path = require('path')
@@ -35,14 +36,25 @@ module.exports.getAllUsers = (req, res) => {
 module.exports.saveUsers = (req, res) => {
     const newUser = req.body;
     newUser.id = userArr.length+1;
-    userArr.push(newUser);
-    fs.writeFile('data.JSON', JSON.stringify(userArr), (err)=> { // to send dynamic data you must stringify it.
-        if(err){
-            res.send("error")
-        }else{
-            res.send("added")
-        }
-    });
+
+    if(!(newUser.id && newUser.name && newUser.gender && newUser.contact && newUser.address && newUser.photoUrl)){
+        res.send("Make sure these fields are there in your data == Id, Name, Content, Gender, Address, PhotoUrl" .red
+        )
+    }else{        
+        userArr.push(newUser);
+        fs.writeFile('data.JSON', JSON.stringify(userArr), (err)=> { // to send dynamic data you must stringify it.
+            if(err){
+                res.send("error")
+            }else{
+                res.send("added")
+            }
+        });
+    }
+
+
+    
+
+    
 }
 
 
