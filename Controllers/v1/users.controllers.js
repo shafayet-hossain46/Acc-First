@@ -4,14 +4,12 @@ let userArr = JSON.parse(fs.readFileSync('data.JSON', 'utf8'));
 const path = require('path')
 
 
-
 // Random Users
 module.exports.getRandomUsers = (req, res) => {
     const randomUser = Math.floor(Math.random() * userArr.length);
     res.send(userArr[randomUser]);
     res.end();
 }
-
 
 
 // All Users
@@ -29,7 +27,6 @@ module.exports.getAllUsers = (req, res) => {
         res.end()
     }
 }
-
 
 
 // Save User
@@ -51,8 +48,6 @@ module.exports.saveUsers = (req, res) => {
         });
     }
 }
-
-
 
 
 // Update User Info
@@ -82,7 +77,6 @@ module.exports.UpdateUser = (req, res) => {
 }
 
 
-
 // Bulk-Update
 module.exports.updateBulk = (req, res) => {
     const AllIds = req.body.ids;
@@ -107,8 +101,6 @@ module.exports.updateBulk = (req, res) => {
         }
     });
 }
-
-
 
 
 // Delete User
