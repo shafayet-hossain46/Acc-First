@@ -79,7 +79,32 @@ module.exports.UpdateUser = (req, res) => {
             }
         });
     }
-
 }
 
+
+
+// Bulk-Update
+module.exports.updateBulk = (req, res) => {
+    const AllIds = req.body.ids;
+    AllIds.forEach(_id => {
+        const {address, gender, contact, photoUrl, id, name} = req.body;
+        const gotData =  userArr.filter(user => user.id == _id)
+        gotData[0].address = address || gotData[0].address
+        gotData[0].name = name || gotData[0].name
+        gotData[0].gender = gender || gotData[0].gender
+        gotData[0].contact = contact || gotData[0].contact
+        gotData[0].photoUrl = photoUrl || gotData[0].photoUrl
+        gotData[0].id = id || gotData[0].id
+    });
+    
+    fs.writeFile('data.JSON', JSON.stringify(userArr), (err)=> { // to send dynamic data you must stringify it.
+        if(err){
+            res.send("error")
+            res.end()
+        }else{
+            res.send("added")
+            res.end()
+        }
+    });
+}
 

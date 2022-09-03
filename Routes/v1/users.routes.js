@@ -19,4 +19,8 @@ router.route('/update/:id')
 .patch(usersControllers.UpdateUser)
 
 
+// Bulk-Update
+router.route('/bulk-update')
+.patch(usersControllers.updateBulk)
+
 module.exports = router;

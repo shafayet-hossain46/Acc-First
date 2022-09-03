@@ -36,6 +36,9 @@ PATCH /user/update Update a random user
 Update a user's information in the .json file using its id
 BONUS: validate the user id
 
+-------------------------------------------------------------
+-------------------------------------------------------------
+-------------------------------------------------------------
 
 PATCH /user/bulk-update update multiple users
 
