@@ -18,9 +18,12 @@ router.route('/save')
 router.route('/update/:id') 
 .patch(usersControllers.UpdateUser)
 
-
 // Bulk-Update
 router.route('/bulk-update')
 .patch(usersControllers.updateBulk)
+
+// Delete User
+router.route('/delete/:id')
+.delete(usersControllers.deleteUser)
 
 module.exports = router;

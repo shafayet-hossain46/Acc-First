@@ -96,14 +96,5 @@
         "address": "North America",
         "photoUrl": "https://i.insider.com/604b12cbfea127001886a5ba?width=1136&format=jpeg",
         "id": 12
-    },
-    {
-        "name": "Suzan",
-        "gender": "Male",
-        "contact": "01456445566",
-        "address": "East America",
-        "photoUrl": "https://i.insider.com/604b12cbfea127001886a5ba?width=1136&format=jpeg",
-        "id": 13,
-        "PhotoUrl": "https://i.insider.com/604b12cbfea127001886a5ba?width=1136&format=jpeg"
     }
 ]

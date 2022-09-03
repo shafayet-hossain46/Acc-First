@@ -12,6 +12,7 @@ app.use("/api/v1/user", userRouter);
 app.post("/api/v1/user", userRouter);
 app.patch("/api/v1/user", userRouter);
 app.patch("/api/v1/user", userRouter);
+app.delete("/api/v1/user", userRouter);
 
 
 app.all('*', (req, res)=>{
